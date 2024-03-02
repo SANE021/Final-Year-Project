@@ -1,0 +1,110 @@
+{% extends "../base.html" %} {% load static %} {% block template %}
+
+{%block CSS%}
+<link rel="stylesheet" href="{% static 'css/style1.css' %}">
+{%endblock%}
+<header style="overflow: unset;">
+  {%include "../nav/song_side_dashboard.html" %}
+
+  <div class="song_side" style="background: white;">
+    <nav>
+      <ul>
+        <li>Discover <span></span></li>
+        <!-- <li>MY LIBRARY</li>
+                <li>RADIO</li> -->
+      </ul>
+      <div class="search">
+        <i class="bi bi-search"></i>
+        <input type="text" placeholder="Search Music..." />
+      </div>
+      <div class="user">
+        <img src="{%static 'img/profile.png'%}" alt="User" title="profile" />
+      </div>
+    </nav>
+    <div class="content">
+      <h1>Khar-G Records - Be an Artist</h1>
+      <p>
+        We provide you with quality of opportunity for struggling artists.
+        <br />
+        Sp, We'll be there for you
+      </p>
+      <div class="buttons">
+        <button>Sign Up</button>
+        <button>Login</button>
+      </div>
+    </div>
+    <div class="popular_song">
+      <div class="h4">
+        <h4>Top Chart Songs</h4>
+        <div class="btn_s">
+          <i id="left_scroll" class="bi bi-arrow-left-short"></i>
+          <i id="right_scroll" class="bi bi-arrow-right-short"></i>
+        </div>
+      </div>
+      <div class="pop_song" style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; grid-gap: 15px;">
+        
+        {% for song in songs %}
+        <li >
+          <a href="{% url 'song-detail' song.pk %}">
+            <div class="img-wrap">
+              {% if song.songThumbnail %}
+              <img style=" width: 100%;
+              height: 240px;
+              object-fit: cover;" src="/media/{{ song.songThumbnail }}" alt="{{ song.songName }}" />
+              {% else %}
+              <img src="{% static 'img/default.jpg' %}" alt="{{ song.songName }}" />
+              {% endif %}
+            </div>
+            <h5>
+              {{ song.songName }}
+              <br />
+              <div class="subtitle">{{ song.artist_name }}</div>
+            </h5>
+            <audio class="audio" id="audio_{{ song.id }}" data-src="/media/{{ song.song.url }}" preload="none"></audio>
+          </a>
+        </li>
+
+        {% endfor %}
+
+
+
+      </div>
+    </div>
+  </div>
+
+  {% comment %} <div class="master_play">
+    <div class="wave">
+      <div class="wave1"></div>
+      <div class="wave1"></div>
+      <div class="wave1"></div>
+    </div>
+    <img src="assets/img/26th.jpg" alt="Alan" id="poster_master_play" />
+    <h5 id="title">
+      Vande Mataram<br />
+      <div class="subtitle">Bankim Chandra</div>
+    </h5>
+    <div class="icon">
+      <i class="bi bi-skip-start-fill" id="back"></i>
+      <i class="bi bi-play-fill" id="masterPlay"></i>
+      <i class="bi bi-skip-end-fill" id="next"></i>
+    </div>
+    <span id="currentStart">0:00</span>
+    <div class="bar">
+      <input type="range" id="seek" min="0" value="0" max="100" />
+      <div class="bar2" id="bar2"></div>
+      <div class="dot"></div>
+    </div>
+    <span id="currentEnd">0:00</span>
+
+    <div class="vol">
+      <i class="bi bi-volume-down-fill" id="vol_icon"></i>
+      <input type="range" id="vol" min="0" value="30" max="100" />
+      <div class="vol_bar"></div>
+      <div class="dot" id="vol_dot"></div>
+    </div>
+  </div> {% endcomment %}
+</header>
+
+<script src="{% static 'js/app.js' %}"></script>
+
+{% endblock %}

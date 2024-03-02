@@ -1,0 +1,84 @@
+{% extends "../base.html" %}
+{% load static %}
+
+{% block template %}
+
+<div class="menu_side" style="height: 100%; background-color:white;">
+    <h1 style="color: black; font-size: 28px;">Khar-G Records</h1>
+    <div class="playlist">
+      <a href="index-stream.html"></a>
+        <h4 class="active" style="color: #7e0015; font-weight: 700;">
+          <span></span><i class="bi bi-music-note-beamed"></i>Top Songs
+        </h4>
+      </a>
+      <a href="newsongs.html">
+        <h4 style="color: #7e0015; font-weight: 700;">
+          <span></span><i class="bi bi-music-note-beamed"></i>New Songs
+        </h4>
+      </a>
+      <a href="kharg-songs.html">
+        <h4 style="color: #7e0015; font-weight: 700;">
+          <span></span><i class="bi bi-music-note-beamed"></i>Khar-G Songs
+        </h4>
+      </a>
+    </div>
+    <div class="menu_song">
+      <h2 style="font-size: 22px;">Songs</h2>
+      <li class="songItem">
+        <span style="color: red;">01</span>
+        <img src="{% static 'img/1.jpg' %}" alt="Alan" />
+        <h5>
+          On My Way
+          <div class="subtitle">Alan Walker</div>
+        </h5>
+        <i class="bi playListPlay bi-play-circle-fill" id="1" style="color: red;"></i>
+      </li>
+      <li class="songItem">
+        <span style="color: red;">02</span>
+        <img src="{% static 'img/2.jpg' %}" alt="Alan" />
+        <h5>
+          On My Way
+          <div class="subtitle">Alan Walker</div>
+        </h5>
+        <i class="bi playListPlay bi-play-circle-fill" id="2" style="color: red;"></i>
+      </li>
+      <li class="songItem">
+        <span style="color: red;">03</span>
+        <img src="{% static 'img/3.jpg' %}" alt="Alan" />
+        <h5>
+          On My Way
+          <div class="subtitle">Alan Walker</div>
+        </h5>
+        <i class="bi playListPlay bi-play-circle-fill" id="3" style="color: red;"></i>
+      </li>
+      <li class="songItem">
+        <span style="color: red;">04</span>
+        <img src="{% static 'img/4.jpg' %}" alt="Alan" />
+        <h5>
+          On My Way
+          <div class="subtitle">Alan Walker</div>
+        </h5>
+        <i class="bi playListPlay bi-play-circle-fill" id="4" style="color: red;"></i>
+      </li>
+      <li class="songItem">
+        <span style="color: red;">05</span>
+        <img src="{% static 'img/5.jpg' %}" alt="Alan" />
+        <h5>
+          On My Way
+          <div class="subtitle">Alan Walker</div>
+        </h5>
+        <i class="bi playListPlay bi-play-circle-fill" id="5" style="color: red;"></i>
+      </li>
+      <li class="songItem">
+        <span style="color: red;">06</span>
+        <img src="{% static 'img/6.jpg' %}" alt="Alan" />
+        <h5>
+          On My Way
+          <div class="subtitle">Alan Walker</div>
+        </h5>
+        <i class="bi playListPlay bi-play-circle-fill" id="6" style="color: red;"></i>
+      </li>
+    </div>
+  </div>
+
+  {% endblock %}

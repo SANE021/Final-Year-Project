@@ -1,0 +1,185 @@
+{% extends "../base.html" %} {% load static %} 
+{% block template %}
+
+{%block CSS%}
+<link rel="stylesheet" href="{% static 'css/style1.css' %}">
+{%endblock%}
+<header style="overflow: unset;">
+  <div class="menu_side" style="height: 100%; background-color:white;">
+    <h1 style="color: black; font-size: 28px;">Khar-G Records</h1>
+    <div class="playlist">
+      <a href="index-stream.html"></a>
+        <h4 class="active" style="color: #7e0015; font-weight: 700;">
+          <span></span><i class="bi bi-music-note-beamed"></i>Top Songs
+        </h4>
+      </a>
+      <a href="newsongs.html">
+        <h4 style="color: #7e0015; font-weight: 700;">
+          <span></span><i class="bi bi-music-note-beamed"></i>New Songs
+        </h4>
+      </a>
+      <a href="kharg-songs.html">
+        <h4 style="color: #7e0015; font-weight: 700;">
+          <span></span><i class="bi bi-music-note-beamed"></i>Khar-G Songs
+        </h4>
+      </a>
+    </div>
+    <div class="menu_song">
+      <h2 style="font-size: 22px;">Songs</h2>
+      <li class="songItem">
+        <span style="color: red;">01</span>
+        <img src="{% static 'img/1.jpg' %}" alt="Alan" />
+        <h5>
+          On My Way
+          <div class="subtitle">Alan Walker</div>
+        </h5>
+        <i class="bi playListPlay bi-play-circle-fill" id="1" style="color: red;"></i>
+      </li>
+      <li class="songItem">
+        <span style="color: red;">02</span>
+        <img src="{% static 'img/2.jpg' %}" alt="Alan" />
+        <h5>
+          On My Way
+          <div class="subtitle">Alan Walker</div>
+        </h5>
+        <i class="bi playListPlay bi-play-circle-fill" id="2" style="color: red;"></i>
+      </li>
+      <li class="songItem">
+        <span style="color: red;">03</span>
+        <img src="{% static 'img/3.jpg' %}" alt="Alan" />
+        <h5>
+          On My Way
+          <div class="subtitle">Alan Walker</div>
+        </h5>
+        <i class="bi playListPlay bi-play-circle-fill" id="3" style="color: red;"></i>
+      </li>
+      <li class="songItem">
+        <span style="color: red;">04</span>
+        <img src="{% static 'img/4.jpg' %}" alt="Alan" />
+        <h5>
+          On My Way
+          <div class="subtitle">Alan Walker</div>
+        </h5>
+        <i class="bi playListPlay bi-play-circle-fill" id="4" style="color: red;"></i>
+      </li>
+      <li class="songItem">
+        <span style="color: red;">05</span>
+        <img src="{% static 'img/5.jpg' %}" alt="Alan" />
+        <h5>
+          On My Way
+          <div class="subtitle">Alan Walker</div>
+        </h5>
+        <i class="bi playListPlay bi-play-circle-fill" id="5" style="color: red;"></i>
+      </li>
+      <li class="songItem">
+        <span style="color: red;">06</span>
+        <img src="{% static 'img/6.jpg' %}" alt="Alan" />
+        <h5>
+          On My Way
+          <div class="subtitle">Alan Walker</div>
+        </h5>
+        <i class="bi playListPlay bi-play-circle-fill" id="6" style="color: red;"></i>
+      </li>
+    </div>
+  </div>
+
+  <div class="song_side" style="position: relative; height: 100%;">
+    <nav>
+      <ul>
+        <li>Discover <span></span></li>
+        <!-- <li>MY LIBRARY</li>
+                <li>RADIO</li> -->
+      </ul>
+      <div class="search">
+        <i class="bi bi-search"></i>
+        <input type="text" placeholder="Search Music..." />
+      </div>
+      <div class="user">
+        <img src="{%static 'img/profile.png'%}" alt="User" title="profile" />
+      </div>
+    </nav>
+    <div class="popular_song">
+      <div class="pop_song" style="overflow-x: unset; justify-content: center; text-align: center">
+        <div class="container mx-auto mt-8">
+            <div class="bg-white shadow-md rounded-lg p-8">
+                <h1 style="font-size: 28px;" class="text-3xl font-bold mb-6">{{ song.songName }}</h1>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- Image Column -->
+                    <div class="mt-2">
+                        <div class="w-full h-64 md:h-auto overflow-hidden rounded-lg" style="background-image: url('{{ song.songThumbnail.url }}'); background-size: cover; background-position: center;">
+                        </div>
+                    </div>
+                    <!-- Information Column -->
+                    <div class="flex flex-col justify-between gap-2">
+                        
+                        
+                        <div class="img-wrap">
+                            <img style="width: 400px;
+                            height: auto;
+                            object-fit: contain;
+                            border-radius: 15px;" src="/media/{{ song.songThumbnail }}" alt="{{ song.songName }}" />
+                            
+                        </div>
+                        <h5>
+                            <div class="subtitle" style="color: white; margin-bottom: 5px; font-size: 20px;">{{ song.artist_name }}</div>
+                        </h5>
+                        
+                        <p class="mb-4" style="color: white; margin-bottom: 5px; font-size: 14px;"> {{ song.genre }}</p>
+    
+    
+                        
+                  
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+
+      
+
+      </div>
+    </div>
+    <div class="audio-content-container" style="padding: 20px;">
+      <audio controls class="mb-4" style="width: 96%; position: absolute; bottom: 0; background: black;">
+        <source src="{{ song.song.url }}" type="audio/mpeg">
+        Your browser does not support the audio element.
+      </audio>
+    </div>
+  </div>
+
+  {% comment %} <div class="master_play">
+    <div class="wave">
+      <div class="wave1"></div>
+      <div class="wave1"></div>
+      <div class="wave1"></div>
+    </div>
+    <img src="assets/img/26th.jpg" alt="Alan" id="poster_master_play" />
+    <h5 id="title">
+      Vande Mataram<br />
+      <div class="subtitle">Bankim Chandra</div>
+    </h5>
+    <div class="icon">
+      <i class="bi bi-skip-start-fill" id="back"></i>
+      <i class="bi bi-play-fill" id="masterPlay"></i>
+      <i class="bi bi-skip-end-fill" id="next"></i>
+    </div>
+    <span id="currentStart">0:00</span>
+    <div class="bar">
+      <input type="range" id="seek" min="0" value="0" max="100" />
+      <div class="bar2" id="bar2"></div>
+      <div class="dot"></div>
+    </div>
+    <span id="currentEnd">0:00</span>
+
+    <div class="vol">
+      <i class="bi bi-volume-down-fill" id="vol_icon"></i>
+      <input type="range" id="vol" min="0" value="30" max="100" />
+      <div class="vol_bar"></div>
+      <div class="dot" id="vol_dot"></div>
+    </div>
+  </div> {% endcomment %}
+</header>
+
+<script src="{% static 'js/app.js' %}"></script>
+
+{% endblock %}

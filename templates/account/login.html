@@ -1,0 +1,43 @@
+{% extends "../base.html" %}
+
+{% load static %}
+
+{% block template %}
+<section class="logo-main-container">
+    <div class="main-login-container">
+        <div class="left-login-content">
+            <h2>Login User</h2>
+            <p>Please enter your contact details to connect.</p>
+            <form method="post" action="{% url 'account_login' %}">
+                {% csrf_token %}
+                {{ form.login }}
+                {{ form.password }}
+                {% comment %} <div class="forgot-pass-flex mt-25 mb-25">
+                    <div class="rememberme-box">
+                        <input type="checkbox" id="rememberMe" name="rememberMe" {% if form.remember_me.value %} checked {% endif %} />
+                        <label for="rememberMe">Remember Me</label>
+                    </div>
+                </div> {% endcomment %}
+
+                <div class="flex-btn-login">
+                    <button type="submit" class="login-without-logo">Log In</button>
+                </div>
+            </form>
+
+            <div class="flex-btn-login">
+                <a href="" class="login-with-logo">
+                    <img src="{% static 'images/google.svg' %}" alt="Google Logo" /> Log in with Google
+                </a>
+            </div>
+
+            
+
+            <div class="dont-have-accnt">
+                <h3>Don't have an account?</h3>
+                <a href="{% url 'account_signup' %}">Sign Up here</a>
+            </div>
+        </div>
+        <img src="{% static 'images/girlwithfire.png' %}" alt="" class="girl-with-fire" />
+    </div>
+</section>
+{% endblock %}

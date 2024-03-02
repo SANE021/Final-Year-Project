@@ -1,0 +1,74 @@
+{% extends "../base.html" %}
+{% load static %}
+
+{% block template %}
+{% include "../nav/nav.html"%}
+
+
+<!---------BOOKING SECTION STARTS FROM HERE--------------->
+    <section class="booking-section">
+        <div class="main-container">
+            <div class="booking-main-container">
+                <div class="left-booking-content">
+                    <h3>Book Your Session Now</h3>
+                    <h2>Khar-G Records. When Only The Best Will Do!</h2>
+                    <form class="booking-form">
+                        <input type="text" name="name" placeholder="First Name" class="input-box mb-35">
+                        <input type="text" name="name" placeholder="Last Name" class="input-box mb-35">
+                        <input type="email" name="email" placeholder="Email" class="input-box mb-35">
+                        <select id="dropdown" name="dropdown" class="drop-down">
+                            <option value="" selected disabled>Service Type</option>
+                            <option value="option2">Vocal Recording</option>
+                            <option value="option3">Mix/Master</option>
+                            <option value="option3">Full Song/Beat</option>
+                            <option value="option3">Full Song/Own Beat</option>
+                            <option value="option3">Album/Music Cover Design</option>
+                            <option value="option3">Beat Production</option>
+                            <option value="option3">Music Video Editing</option>
+                        </select>
+                        <input type="date" id="date" name="date" placeholder="Date" class="drop-down">
+                        <select id="dropdown" name="dropdown" class="drop-down">
+                            <option value="" selected disabled>No. Of Hours</option>
+                            <option value="option2">1</option>
+                            <option value="option3">2</option>
+                            <option value="option3">3</option>
+                            <option value="option3">4</option>
+                            <option value="option3">5</option>
+                        </select>
+                        <select id="dropdown" name="dropdown" class="drop-down">
+                            <option value="" selected disabled>Genre</option>
+                            <option value="option2">Classical</option>
+                            <option value="option3">Hip-Hop</option>
+                            <option value="option3">Jazz</option>
+                            <option value="option3">Funk</option>
+                            <option value="option3">RnB</option>
+                            <option value="option3">PoP</option>
+                            <option value="option3">Rock</option>
+                            <option value="option3">Metal</option>
+                        </select>
+                        <div class="contact-number-container">
+                            <span class="country-code">+977</span>
+                            <input type="text" id="contactNumber" name="contactNumber" class="input-number">
+                        </div>
+                        <select id="dropdown" name="dropdown" class="drop-down">
+                            <option value="" selected disabled>Advnc Pay</option>
+                            <option value="option1">Esewa</option>
+                            <option value="option2">Khalti</option>
+                            <option value="option3">Cash On Arrival</option>
+                        </select> 
+                        <a href="{% url 'booked' %}" class="booking-red-button" title="Get Started">
+                            Book Now
+                        </a>
+                    </form>
+                </div>
+                <div class="booking-right-bg">
+                    <img src="{% static 'images/color-mic.png' %}" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!---------BOOKING SECTION ENDS FROM HERE--------------->
+
+    {% include "../nav/footer.html"%}
+
+    {% endblock %}

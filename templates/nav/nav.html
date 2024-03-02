@@ -1,0 +1,79 @@
+{% extends "../base.html" %}
+{% load static %}
+
+{% block template %}
+<section id="section-header">
+    <div class="white-header">
+        <div class="main-container">
+            <div class="white-header-content">
+                <div class="logo">
+                    <a href="index.html" title="Routine Logo">
+                        <img class="img-responsive" src="{% static 'images/logo.png' %}" alt="Logo">
+                    </a>
+                </div>
+                <div class="header-menu-list">
+                    <li><a class="nav-link" title="Home" href="{% url 'index' %}">Home</a></li>
+                    <li><a class="nav-link" title="Home" href="{% url 'services' %}">Services</a></li>
+                   
+                    <li><a class="nav-link" href="aboutus.html" title="About Us">About US</a></li>
+                    <li><a class="nav-link" href="contactus.html" title="Contact">Contact Us</a></li>
+                    <a href="{% url 'account_signup' %}" class="red-button" title="Get Started">
+                        Explore Music
+                    </a>
+                </div>
+                <div class="mobile-menu-content">
+                    <img class="mobilemenu" src="assets/images/menu.svg" alt="Menu"
+                        style="width: 50px; height: auto;">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!------HEADER ENDS FROM HERE-------->
+
+<!-----------MOBILE MENU SECTION ENDS HERE----------->
+<section id="mobilebar-section">
+    <div class="mobilebox">
+        <div class="mobile-inner-container">
+            <div class="mobilebox-inner">
+                <div class="mobile-menu-header">
+                    <div class="mobilelogo">
+                        <img src="assets/images/logo.png" alt="Logo">
+                    </div>
+                    <div class="cross_icon">
+                        <i class='bx bx-x'></i>
+                    </div>
+                </div>
+                <div class="mobile-menu-list">
+                    <ul>
+                        <li><a href="index.html" title="Home">Home</a></li>
+                        <li><a href="#" title="Takeaway">Takeaway</a>
+                            <i class='bx bxs-down-arrow tab-btn'></i>
+                            <ul class="mobile-submenu">
+                                <li><a href="#" title="">Sub Menu 1</a></li>
+                                <li><a href="#" title="">Sub Menu 2</a>
+                                    <i class='bx bxs-down-arrow tab-btn'></i>
+                                    <ul class="mobile-submenu">
+                                        <li><a href="#" title="">Pre Menu</a></li>
+                                        <li><a href="#" title="">Pre Menu</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li><a href="bookings.html" title="Bookings">Bookings</a></li>
+                        <li><a href="contact.html" title="Contact Us">Contact Us</a></li>
+                    </ul>
+                    <div class="mobile-social-link">
+                        <div class="social-link">
+                            <a href="#" title="Facebook"><i class='bx bxl-facebook'></i></a>
+                            <a href="#" title="Instagram"><i class='bx bxl-instagram'></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-----------MOBILE MENU SECTION ENDS HERE----------->
+
+{% endblock %}
