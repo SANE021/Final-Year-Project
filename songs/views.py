@@ -1,7 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from .models import * 
-from django.views.generic import  DetailView
+from django.utils.decorators import method_decorator
+from django.views.generic import  DetailView ,ListView
 
 
 
@@ -17,4 +18,13 @@ class SongDetailView(DetailView):
     model = Song
     template_name = 'dashboard/song_detail.html'
 
+@method_decorator(login_required, name='dispatch')
+class MySongsView(ListView):
+    model = Song
+    template_name = 'artist/my_songs.html'
+    context_object_name = 'user_songs'
+
+    def get_queryset(self):
+        # Filter songs based on the currently logged-in user
+        return Song.objects.filter(artist=self.request.user.artist)
 

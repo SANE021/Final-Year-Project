@@ -53,10 +53,12 @@
                         <select id="dropdown" name="dropdown" class="drop-down">
                             <option value="" selected disabled>Advnc Pay</option>
                             <option value="option1">Esewa</option>
+                            
                             <option value="option2">Khalti</option>
+                            
                             <option value="option3">Cash On Arrival</option>
                         </select> 
-                        <a href="{% url 'booked' %}" class="booking-red-button" title="Get Started">
+                        <a href="{% url 'khalti_payment' %}" class="booking-red-button" title="Get Started">
                             Book Now
                         </a>
                     </form>
@@ -70,5 +72,18 @@
     <!---------BOOKING SECTION ENDS FROM HERE--------------->
 
     {% include "../nav/footer.html"%}
+
+    <script>
+        function submitForm() {
+            var paymentMethod = document.getElementById("dropdown").value;
+            if (paymentMethod === "Khalti") {
+                // Redirect to Khalti payment page
+                window.location.href = "{% url 'verify_payment' %}";
+            } else {
+                // Submit the form to the server
+                document.getElementsByClassName("booking-form")[0].submit();
+            }
+        }
+    </script>
 
     {% endblock %}

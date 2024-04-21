@@ -1,4 +1,6 @@
-{% extends "../base.html" %} {% load static %} {% block template %}
+{% extends "../base.html" %} 
+{% load static %} 
+{% block template %}
 
 {%block CSS%}
 <link rel="stylesheet" href="{% static 'css/style1.css' %}">
@@ -18,21 +20,32 @@
         <input type="text" placeholder="Search Music..." />
       </div>
       <div class="user">
+        <a href="{% url 'artist_profile'  %}"> 
         <img src="{%static 'img/profile.png'%}" alt="User" title="profile" />
+        </a>
       </div>
     </nav>
-    <div class="content">
-      <h1>Khar-G Records - Be an Artist</h1>
-      <p>
-        We provide you with quality of opportunity for struggling artists.
-        <br />
-        Sp, We'll be there for you
-      </p>
-      <div class="buttons">
-        <button>Sign Up</button>
-        <button>Login</button>
-      </div>
-    </div>
+    {% if user.is_authenticated %}
+      {% with artist=user.get_artist %}
+        {% if not artist %}
+          <div class="content">
+            <h1>Khar-G Records - Be an Artist</h1>
+                <p>
+          We provide you with quality opportunities for struggling artists.
+              <br />
+              So, we'll be there for you.
+            </p>
+            <div class="buttons">
+              <a href="{% url 'create_artist_profile' %}">
+                <button>Create artist profile</button>
+              </a>
+          {# <button>Login</button> #}
+            </div>
+          </div>
+        {% endif %}
+      {% endwith %}
+    {% endif %}
+
     <div class="popular_song">
       <div class="h4">
         <h4>Top Chart Songs</h4>

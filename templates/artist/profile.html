@@ -1,0 +1,48 @@
+<!-- artist/templates/artist/profile.html -->
+{% extends '../base.html' %}
+
+{% load static %} 
+
+{% block template %}
+
+
+{%include "../nav/nav.html" %}
+
+<div style="max-width: 600px; margin: 0 auto; text-align: center; padding: 20px; border: 1px solid #ccc; border-radius: 8px; background-color: #fff;">
+    <h2 style="color: #333;">{{ artist.name }}'s Profile</h2>
+
+    <img src="{{ artist.profile_pic.url }}" alt="{{ artist.name }}'s Profile Picture" style="max-width: 200px; border-radius: 50%;">
+
+    <p style="margin-top: 20px;"><strong>Tagline:</strong> {{ artist.tagline }}</p>
+    <p><strong>Bio:</strong> {{ artist.bio }}</p>
+    <p><strong>Gender:</strong> {{ artist.get_gender_display }}</p>
+    <p><strong>Nationality:</strong> {{ artist.Nationality }}</p>
+    <p><strong>Address:</strong> {{ artist.Address }}</p>
+
+    <!-- Add other profile details as needed -->
+
+    <div style="margin-top: 20px;">
+      <!-- Add more styling for additional profile details or buttons if needed -->
+    </div>
+    <div style="margin-top: 20px;">
+        <a href="{% url 'edit_profile' %}" style="background-color: #007bff; color: #fff; padding: 10px 15px; text-decoration: none; border-radius: 4px; cursor: pointer;">Edit Profile</a>
+      
+    </div>
+
+    <div style="margin-top: 40px;">
+        <h3>Your Uploaded Songs</h3>
+        {% if uploaded_songs %}
+            <ul style="list-style-type: none; padding: 0;">
+                {% for song in uploaded_songs %}
+                    <li>
+                        <strong>{{ song.songName }}</strong> - {{ song.artist_name }} ({{ song.get_genre_display }})
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No songs uploaded yet.</p>
+        {% endif %}
+    </div>                                           
+
+  </div>
+{% endblock %}

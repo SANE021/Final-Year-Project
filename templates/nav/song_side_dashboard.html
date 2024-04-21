@@ -11,11 +11,13 @@
           <span></span><i class="bi bi-music-note-beamed"></i>Top Songs
         </h4>
       </a>
-      <a href="newsongs.html">
-        <h4 style="color: #7e0015; font-weight: 700;">
-          <span></span><i class="bi bi-music-note-beamed"></i>New Songs
-        </h4>
-      </a>
+      {% if request.user.is_authenticated and request.user.artist %}
+  <a href="{% url 'upload_song' %}">
+    <h4 style="color: #7e0015; font-weight: 700;">
+      <span></span><i class="bi bi-music-note-beamed"></i>Upload Song
+    </h4>
+  </a>
+{% endif %}
       <a href="kharg-songs.html">
         <h4 style="color: #7e0015; font-weight: 700;">
           <span></span><i class="bi bi-music-note-beamed"></i>Khar-G Songs

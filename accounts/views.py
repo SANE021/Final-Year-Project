@@ -13,8 +13,8 @@ def handle_login(request):
         return redirect('dashboard')
     else:
         # Handle the case when the user is not authenticated
-        # You can redirect them to the login page or any other appropriate page
-        return redirect('login')  # Change 'login' to the actual login URL
+       
+        return redirect('login') 
 
 
 @login_required

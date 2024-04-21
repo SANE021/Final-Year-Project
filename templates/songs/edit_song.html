@@ -1,0 +1,12 @@
+
+{% extends '../base.html' %}
+
+{% block template %}
+
+<h2>Edit Song</h2>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Update</button>
+  </form>
+{% endblock %}
